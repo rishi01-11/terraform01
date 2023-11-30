@@ -1,7 +1,7 @@
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "first-instance"
+  #name = "first-instance"
 
   ami = "ami-022e1a32d3f742bd8"
 
@@ -11,7 +11,8 @@ module "ec2_instance" {
   monitoring = true
   #vpc_security_group_ids = ["sg-12345678"]
   subnet_id              = var.public_subnets
-
+  count = 5
+  name = "instance-$(count.index)"
   tags = {
     Terraform   = "true"
     Environment = "dev"
