@@ -12,7 +12,7 @@ module "ec2_instance" {
   #vpc_security_group_ids = ["sg-12345678"]
   subnet_id              = var.public_subnets
   count = 5
-  name = "instance-$(count.index)"
+  name = "{var.profile_name}instance-$(count.index)"
   tags = {
     Terraform   = "true"
     Environment = "dev"

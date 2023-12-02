@@ -6,3 +6,8 @@ variable "instance_type" {
 variable "public_subnets" {
   type = string
 }
+
+variable "profile_name" {
+  type = string
+  default = ""
+}
